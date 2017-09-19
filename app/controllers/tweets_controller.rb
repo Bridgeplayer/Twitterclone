@@ -18,6 +18,7 @@ class TweetsController < ApplicationController
 	def create
 		# post_params = params[:tweet].permit(:post)
 		@twee = Tweet.new(post_params)
+		@twee.user_id = current_user.id
 
 		if @twee.save
 			flash[:success] = "Bookrecord successfully created"
