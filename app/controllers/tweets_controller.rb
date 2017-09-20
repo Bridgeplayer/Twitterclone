@@ -31,8 +31,8 @@ class TweetsController < ApplicationController
 
 	def show
 		@twee = Tweet.find(params[:id])
-		byebug
-		@repli = @twee.replies.build
+		@repli = Replie.new
+		# @repli = @twee.replies.build
 	end
 
 
