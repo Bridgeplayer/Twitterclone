@@ -15,5 +15,35 @@ class RepliesController < ApplicationController
 		end
 	end
 
+	def edit
+		@twee = Tweet.find(params[:tweet_id])
+		@repli = Reply.find(params[:id])
+	end
+
+	def update
+		@twee = Tweet.find(params[:tweet_id])
+		@repli = Reply.find(params[:id])
+		repli_params = params.require(:reply).permit(:post)
+		if @repli.update(repli_params)
+			flash[:notice] = "Reply Updated Successfully"
+			redirect_to tweet_path(id: @twee.id)
+		else
+			flash.now[:notice] = "Unsuccessful Reply Edit, please check your input"
+			render :show
+		end
+	end
+
+	def destroy
+		@twee = Tweet.find(params[:tweet_id])
+		@repli = Reply.find(params[:id])
+		if @repli.destroy
+			flash[:notice] = "Successfully Destroyed"
+			redirect_to tweet_path(id: @twee.id)
+		end
+	end
+
+
+
+
 
 end

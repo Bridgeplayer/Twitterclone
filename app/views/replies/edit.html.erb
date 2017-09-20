@@ -1,0 +1,36 @@
+<h1>My Tweet and a list of replies</h1>
+
+
+		<div><%= @twee.user.email %></div>
+		<div><%= @twee.post %></div>
+		<div><%= Like %></div>
+
+	
+	
+	<%= form_for @repli, url: tweet_reply_path(tweet_id: @twee.id, id: @repli.id), method: :put do |f| %>
+
+    <%= f.hidden_field :tweet_id %>
+
+
+<p>
+    <%= f.label :reply %>
+    <%= f.text_area :post %>
+</p>
+<%= f.submit 'Update' %>
+
+	<% end %>
+
+<% @twee.replies.each do |reply| %>
+
+        
+            <div><%= reply.user.email %></div>
+            <div><%= reply.post %></div>
+            <div><%= distance_of_time_in_words(Time.now, reply.updated_at.localtime) %></div>
+            <div>LIKE</div>
+            <div class="buttons"><%= link_to "Back", tweet_path(id: @twee.id) %></div>
+
+    
+
+    <% end %>
+			
+

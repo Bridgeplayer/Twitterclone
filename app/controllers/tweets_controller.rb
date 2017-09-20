@@ -32,6 +32,8 @@ class TweetsController < ApplicationController
 	def show
 		@twee = Tweet.find(params[:id])
 		@repli = Reply.new
+		# @replii = Reply.find(params[:tweet_id])
+
 	end
 
 	def edit
