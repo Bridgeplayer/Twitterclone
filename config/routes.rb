@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   	
   	resources :tweets do
   		resources :replies, only: [:create, :edit, :update, :destroy]
+  		resources :likes, only: [:create, :edit, :update, :destroy]
   	end
 
 end

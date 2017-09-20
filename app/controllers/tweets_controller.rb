@@ -32,7 +32,10 @@ class TweetsController < ApplicationController
 	def show
 		@twee = Tweet.find(params[:id])
 		@repli = Reply.new
-		# @replii = Reply.find(params[:tweet_id])
+		
+		@lik = Like.find_by(user_id: current_user.id)
+		@likcount = Like.count
+	
 
 	end
 
