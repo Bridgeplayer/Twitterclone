@@ -1,6 +1,6 @@
 class TweetsController < ApplicationController
 
-  	before_action :find_tweet, only: [:edit, :show, :update, :destroy]
+  	# before_action :find_tweet, only: [:edit, :show, :update, :destroy]
 
   	def find_tweet
 		@twee = Tweet.find(params[:id])
@@ -27,6 +27,12 @@ class TweetsController < ApplicationController
 			flash.now[:failure] = "Bookrecord not successfully created"
 			render "new"
 		end
+	end
+
+	def show
+		@twee = Tweet.find(params[:id])
+		byebug
+		@repli = @twee.replies.build
 	end
 
 
