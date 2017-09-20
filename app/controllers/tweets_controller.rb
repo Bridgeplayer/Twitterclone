@@ -21,10 +21,10 @@ class TweetsController < ApplicationController
 		@twee.user_id = current_user.id
 
 		if @twee.save
-			flash[:success] = "Bookrecord successfully created"
+			flash[:success] = "Tweet successfully created"
 			redirect_to tweets_path
 		else
-			flash.now[:failure] = "Bookrecord not successfully created"
+			flash.now[:failure] = "Tweet not successfully created"
 			render "new"
 		end
 	end
@@ -47,10 +47,10 @@ class TweetsController < ApplicationController
 		# post_params = params.require(:tweet).permit(:post)
 		@twee = Tweet.find(params[:id])
 		if @twee.update(post_params)
-			flash[:success] = "Bookrecord successfully updated"
+			flash[:success] = "Tweet successfully updated"
 			redirect_to tweets_path
 		else
-			flash.now[:failure] = "Bookrecord not successfully updated"
+			flash.now[:failure] = "Tweet not successfully updated"
 			render "edit"
 		end
 
@@ -59,10 +59,10 @@ class TweetsController < ApplicationController
 	def destroy
 		@twee = Tweet.find(params[:id])
 		if @twee.destroy
-			flash[:success] = "Bookrecord successfully destroyed"
+			flash[:success] = "Tweet successfully destroyed"
 			redirect_to tweets_path
 		else
-			flash.now[:failure] = "Bookrecord not successfully destroyed"
+			flash.now[:failure] = "Tweet not successfully destroyed"
 			redirect_to tweets_path
 		end
 	end
