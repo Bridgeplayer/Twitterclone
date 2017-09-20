@@ -4,6 +4,9 @@
 		<div><%= @twee.user.email %></div>
 		<div><%= @twee.post %></div>
 		<div><%= Like %></div>
+		<div class="buttons"><%= link_to "Edit", edit_tweet_path(id: @twee.id) %></div>
+		<div class="buttons"><%= link_to "Back", tweets_path %></div>
+
 	
 	
 	<%= form_for @repli, url: tweet_replies_path(tweet_id: @twee.id), method: :post do |f| %>
@@ -26,13 +29,11 @@
             <td><%= reply.post %></td>
             <td><%= distance_of_time_in_words(Time.now, reply.updated_at.localtime) %></td>
             <td>LIKE</td>
-            <td><div class="buttons"><%= link_to "View", tweet_path(id: @twee.id) %></div></td>
-            <td><div class="buttons"><%= link_to "Edit", edit_tweet_path(id: @twee.id) %></div></td>
-            <td><div class="buttons"><%= link_to "Delete", tweet_path(id: @twee.id), method: :delete %></div></td>
+            <td><div class="buttons"><%= link_to "Edit", edit_tweet_reply_path(tweet_id: @twee.id, id: reply.id) %></div></td>
+            <td><div class="buttons"><%= link_to "Delete", tweet_reply_path(tweet_id: @twee.id, id: reply.id), method: :delete %></div></td>
 
         </tr>
 
     <% end %>
 			
 
-<div class="buttons"><%= link_to "New Tweet", new_tweet_path %></div>
