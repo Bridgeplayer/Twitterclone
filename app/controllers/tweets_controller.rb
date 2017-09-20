@@ -36,6 +36,33 @@ class TweetsController < ApplicationController
 
 	end
 
+	def edit
+		@twee = Tweet.find(params[:id])
+	end
+
+	def update
+		# post_params = params.require(:tweet).permit(:post)
+		@twee = Tweet.find(params[:id])
+		if @twee.update(post_params)
+			flash[:success] = "Bookrecord successfully updated"
+			redirect_to tweets_path
+		else
+			flash.now[:failure] = "Bookrecord not successfully updated"
+			render "edit"
+		end
+
+	end
+
+	def destroy
+		@twee = Tweet.find(params[:id])
+		if @twee.destroy
+			flash[:success] = "Bookrecord successfully destroyed"
+			redirect_to tweets_path
+		else
+			flash.now[:failure] = "Bookrecord not successfully destroyed"
+			redirect_to tweets_path
+		end
+	end
 
 	private
 	def post_params
