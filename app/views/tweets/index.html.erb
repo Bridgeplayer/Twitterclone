@@ -1,30 +1,39 @@
 <h1>All My Tweets</h1>
 
-<table class="table table-hover">
-	<thead>
-		<th>User</th>
-		<th>Post</th>
-		<th>Created At</th>
-	</thead>
-	
-	<tbody>
+<div class = "container">
+	<div class = "row">
+		<div class = "col-sm-offset-1 col-sm-10">
 
-	<% @twee.each do |twee| %>
-
-		<tr>
-			<td><%= twee.user.email %></td>
-			<td><%= twee.post %></td>
-			<td><%= distance_of_time_in_words(Time.now, twee.updated_at.localtime) %></td>
-			<td>LIKE</td>
-			<td><div class="buttons"><%= link_to "View", tweet_path(id: twee.id) %></div></td>
-			<td><div class="buttons"><%= link_to "Edit", edit_tweet_path(id: twee.id) %></div></td>
-			<td><div class="buttons"><%= link_to "Delete", tweet_path(id: twee.id), method: :delete %></div></td>
-
-		</tr>
-
-	<% end %>
+		<table class="table table-hover">
+			<thead>
+				<th>User</th>
+				<th>Post</th>
+				<th>Created At</th>
+			</thead>
 			
-	</tbody>
-		
-</table>
-<div class="buttons"><%= link_to "New Tweet", new_tweet_path %></div>
+			<tbody>
+
+			<% @twee.each do |twee| %>
+
+				<tr>
+					<td><%= twee.user.email %></td>
+					<td><%= twee.post %></td>
+					<td><%= distance_of_time_in_words(Time.now, twee.updated_at.localtime) %></td>
+					<td>LIKE</td>
+					<td><%= link_to "View", tweet_path(id: twee.id), class:"btn btn-primary" %></td>
+					<td><%= link_to "Edit", edit_tweet_path(id: twee.id), class:"btn btn-info"%></td>
+					<td><div class="buttons"><%= link_to "Delete", tweet_path(id: twee.id), method: :delete, class:"btn btn-warning" %></div></td>
+
+				</tr>
+
+			<% end %>
+					
+			</tbody>
+				
+		</table>
+		<%= link_to "New Tweet", new_tweet_path, class:"btn btn-primary"%>
+		<%= link_to "All my friends", profiles_path, class:"btn btn-success"%>
+
+		</div>
+	</div>
+</div>
