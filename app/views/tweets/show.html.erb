@@ -1,5 +1,8 @@
 <h1>My Tweet and a list of replies</h1>
 
+<div class = "container">
+	<div class = "row">
+		<div class = "col-sm-offset-1 col-sm-10">
 
 		<div><%= @twee.user.email %></div>
 		<div><%= @twee.post %></div>
@@ -14,8 +17,10 @@
 
 		<div class="buttons"><%= link_to "Back", tweets_path %></div>
 
-	
-	
+		</div>
+	</div>	
+</div>
+	<div> REPLY FORM </div>
 	<%= form_for @repli, url: tweet_replies_path(tweet_id: @twee.id), method: :post do |f| %>
 
     <%= f.hidden_field :tweet_id %>
