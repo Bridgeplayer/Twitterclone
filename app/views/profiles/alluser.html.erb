@@ -1,0 +1,9 @@
+<h2> Find Other Tweeters! </h2>
+
+<% @allprofile.each do |alluser| %>
+
+<p> <%= link_to alluser.username, user_path(id: alluser.id) %> </p>
+
+<% end %>
+
+<div><%= link_to "Back", tweets_path, class:"btn btn-primary" %></div>
