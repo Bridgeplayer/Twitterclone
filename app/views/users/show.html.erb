@@ -21,7 +21,7 @@
 					<td><%= twee.user.email %></td>
 					<td><%= twee.post %></td>
 					<td><%= distance_of_time_in_words(Time.now, twee.updated_at.localtime) %></td>
-					<td><%= link_to @leadercount, leader_path %></td>
+					<td><%= link_to @leadercount, tweets_path %></td>
 					<td><%= link_to @followercount, follower_path %></td>
 					<td><%= link_to "View", tweet_path(id: twee.id), class:"btn btn-primary" %></td>
 				</tr>
@@ -31,9 +31,8 @@
 			</tbody>
 				
 		</table>
-
-
-		<%= link_to "My Tweets", tweets_path, class:"btn btn-success"%>
+		<%= link_to "My Tweets", tweets_path, class:"btn btn-primary"%>
+		<%= link_to "Back", alluser_path, class:"btn btn-success"%>
 
 		</div>
 	</div>

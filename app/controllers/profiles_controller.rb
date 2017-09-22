@@ -9,4 +9,8 @@ class ProfilesController < ApplicationController
 		@user = current_user
 	end
 
+	def alluser
+		@allprofile = User.all
+	end
+  
 end

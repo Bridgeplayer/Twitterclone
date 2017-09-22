@@ -4,6 +4,11 @@ Rails.application.routes.draw do
   # resources :profiles, only: [:index]
 
     get 'follower', to: 'profiles#follower'
+    
+    get 'alluser', to: 'profiles#alluser'
+
+    resources :users, only: [:show]
+
 
     get 'leader', to: 'profiles#leader'
 
