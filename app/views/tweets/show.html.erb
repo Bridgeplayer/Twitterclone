@@ -6,7 +6,13 @@
 
 		<div><%= @twee.user.email %></div>
 		<div><%= @twee.post %></div>
-		<div class="buttons"><%= link_to "Edit", edit_tweet_path(id: @twee.id) %></div>
+
+		<% if @twee.user.id == current_user.id %>
+
+			<div class="buttons"><%= link_to "Edit", edit_tweet_path(id: @twee.id) %></div>
+
+		<% end %>
+
 		<%= @likcount %>
 
 		<% if @lik == nil %>

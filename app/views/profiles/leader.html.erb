@@ -1,0 +1,11 @@
+<h2> All Your Leaders </h2>
+
+<% @user.leaders.each do |friends| %>
+
+<!-- p friends.leader.email -->
+
+<p><%= link_to friends.leader.email, user_path(friends.leader.id) %> </p>
+
+<% end %>
+
+<%= link_to "Back", tweets_path %>

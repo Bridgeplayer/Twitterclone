@@ -7,6 +7,7 @@ class TweetsController < ApplicationController
   	end
 
 	def index
+		@user = current_user
 		@twee = Tweet.all
 		@lik = Like.all
 		@user = current_user
