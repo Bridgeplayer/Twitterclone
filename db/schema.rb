@@ -10,7 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170921075655) do
+ActiveRecord::Schema.define(version: 20170921091659) do
+
+  create_table "followings", force: :cascade do |t|
+    t.integer "leader_id"
+    t.integer "follower_id"
+    t.index ["follower_id"], name: "index_followings_on_follower_id"
+    t.index ["leader_id"], name: "index_followings_on_leader_id"
+  end
 
   create_table "likes", force: :cascade do |t|
     t.integer "user_id"

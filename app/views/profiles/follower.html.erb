@@ -1,0 +1,7 @@
+<h2> All Your Followers </h2>
+
+<% @user.followers.each do |friends| %>
+
+<p> <%= p friends.follower.email %> </p>
+
+<% end %>
