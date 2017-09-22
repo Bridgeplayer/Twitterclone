@@ -1,9 +1,10 @@
 <h2> All Your Followers </h2>
 
-<% @user.followers.each do |friends| %>
+  <% @user.followers.each do |friends| %>
 
-<p> <%= p friends.follower.username %> </p>
+    <p><%= link_to friends.follower.username, user_path(friends.follower.id) %> </p>
 
-<% end %>
+  <% end %>
 
 <div><%= link_to "Back", tweets_path, class:"btn btn-primary" %></div>
+

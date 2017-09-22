@@ -1,4 +1,4 @@
-<h1>All My Tweets</h1>
+<h1>My Follower Tweets</h1>
 
 <div class = "container">
 	<div class = "row">
@@ -24,7 +24,6 @@
 					<td><%= link_to @leadercount, tweets_path %></td>
 					<td><%= link_to @followercount, follower_path %></td>
 					<td><%= link_to "View", tweet_path(id: twee.id), class:"btn btn-primary" %></td>
-
 				</tr>
 
 			<% end %>
