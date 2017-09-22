@@ -2,6 +2,8 @@
 
 <% @user.followers.each do |friends| %>
 
-<p> <%= p friends.follower.email %> </p>
+<p> <%= p friends.follower.username %> </p>
 
 <% end %>
+
+<div><%= link_to "Back", tweets_path, class:"btn btn-primary" %></div>

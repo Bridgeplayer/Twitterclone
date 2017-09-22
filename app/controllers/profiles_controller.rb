@@ -5,4 +5,12 @@ class ProfilesController < ApplicationController
 
 
 	end	
+
+
+	def alluser
+		@allprofile = User.all
+	end
+
+	
+
 end

@@ -24,8 +24,6 @@
 					<td><%= link_to @leadercount, tweets_path %></td>
 					<td><%= link_to @followercount, follower_path %></td>
 					<td><%= link_to "View", tweet_path(id: twee.id), class:"btn btn-primary" %></td>
-					<td><%= link_to "Edit", edit_tweet_path(id: twee.id), class:"btn btn-info"%></td>
-					<td><div class="buttons"><%= link_to "Delete", tweet_path(id: twee.id), method: :delete, class:"btn btn-warning" %></div></td>
 
 				</tr>
 
@@ -34,8 +32,8 @@
 			</tbody>
 				
 		</table>
-		<%= link_to "New Tweet", new_tweet_path, class:"btn btn-primary"%>
-		<%= link_to "Explore", alluser_path, class:"btn btn-success"%>
+		<%= link_to "My Tweets", tweets_path, class:"btn btn-primary"%>
+		<%= link_to "Back", alluser_path, class:"btn btn-success"%>
 
 		</div>
 	</div>
