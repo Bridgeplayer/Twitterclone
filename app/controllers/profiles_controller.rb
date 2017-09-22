@@ -1,5 +1,8 @@
 class ProfilesController < ApplicationController
-	def index
+	def follower
 		@allprofile = User.all
+		@user = current_user
+
+
 	end	
 end

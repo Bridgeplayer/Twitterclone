@@ -9,6 +9,9 @@ class TweetsController < ApplicationController
 	def index
 		@twee = Tweet.all
 		@lik = Like.all
+		@user = current_user
+		@leadercount = @user.leaders.count
+		@followercount = @user.followers.count
 	end
 
 	def new
