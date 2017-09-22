@@ -7,12 +7,12 @@ Rails.application.routes.draw do
     
     get 'alluser', to: 'profiles#alluser'
 
-    resources :users, only: [:show]
+    resources :users, only: [:show] do
+    	resources :followings, only: [:create, :destroy]
+    end
 
 
     get 'leader', to: 'profiles#leader'
-
-	resources :users, only: [:show]
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
  	root to: "tweets#index"

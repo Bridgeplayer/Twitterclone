@@ -2,7 +2,18 @@
 
 <% @allprofile.each do |alluser| %>
 
-<p> <%= link_to alluser.username, user_path(id: alluser.id) %> </p>
+<div>
+	<%= link_to alluser.username, user_path(id: alluser.id) %>
+
+	<% if @followin = Following.find_by(leader_id: alluser.id, follower_id: current_user.id) %>
+		<%= link_to "Unfollow Me", user_following_path(user_id: alluser.id, id: @followin.id), method: :delete %>
+
+	<% else %>
+		<%= link_to "Follow Me", user_followings_path(user_id: alluser.id), method: :post %>
+	<% end %>	
+</div>
+<hr>
+
 
 <% end %>
 

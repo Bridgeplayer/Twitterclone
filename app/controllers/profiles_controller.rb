@@ -11,6 +11,7 @@ class ProfilesController < ApplicationController
 
 	def alluser
 		@allprofile = User.all
+
 	end
   
 end
