@@ -2,7 +2,30 @@
 
 <div class = "container">
 	<div class = "row">
-		<div class = "col-sm-offset-1 col-sm-10">
+		<div class = "col-sm-4">
+			<div class="card" style="width: 20rem;">
+			<!--   <img class="card-img-top" src="..." alt="Card image cap"> -->
+			  <%= image_tag current_user.avatar, :size => "200x200", class:"card-img-top" %>
+			  	<div class="card-block">
+			  	<center>
+			    <h4 class="card-title"><%= current_user.username %></h4>
+				</center>
+				<table class="table">
+					<tr>
+						<td>Tweets</td>
+						<td>Leaders</td>
+						<td>Followers</td>
+					</tr>
+					<tr>
+						<td><%= @user.tweets.count %></td>
+			    		<td><%= @leadercount %></td>
+			    		<td><%= @followercount %></td>
+				</table>
+			</div>
+		</div>
+
+		</div>
+		<div class = "col-sm-8">
 
 		<table class="table table-hover">
 			<thead>
@@ -11,11 +34,12 @@
 				<th>Created At</th>
 				<th>Following</th>
 				<th>Followed By</th>
-
+				<th>View</th>
+				<th>Edit</th>
+				<th>Destroy</th>
 			</thead>
 			
 			<tbody>
-
 			<% @user.tweets.each do |twee| %>
 
 				<tr>
@@ -24,10 +48,21 @@
 					<td><%= distance_of_time_in_words(Time.now, twee.updated_at.localtime) %></td>
 					<td><%= link_to @leadercount, leader_path %></td>
 					<td><%= link_to @followercount, follower_path %></td>
+					<td data-turbolinks="false">
+						<%= link_to tweet_path(id: twee.id), class:"btn btn-primary" do %>
+						<span class="glyphicon glyphicon-search"></span>
+						<% end %>
+					</td>
 					<td>
-					<td><%= link_to "View", tweet_path(id: twee.id), class:"btn btn-primary" %></td>
-					<td><%= link_to "Edit", edit_tweet_path(id: twee.id), class:"btn btn-info"%></td>
-					<td><div class="buttons"><%= link_to "Delete", tweet_path(id: twee.id), method: :delete, class:"btn btn-warning" %></div></td>
+						<%= link_to edit_tweet_path(id: twee.id), class:"btn btn-info" do %>
+							<span class="glyphicon glyphicon-pencil"></span>
+						<% end %>
+					</td>
+					<td>
+						<%= link_to tweet_path(id: twee.id), method: :delete, class:"btn btn-warning" do%>
+							<span class="glyphicon glyphicon-trash"></span>
+						<% end %>	
+					</td>
 
 				</tr>
 
@@ -38,7 +73,7 @@
 		</table>
 		<%= link_to "New Tweet", new_tweet_path, class:"btn btn-primary"%>
 		<%= link_to "Explore", alluser_path, class:"btn btn-success"%>
-
+	
 		</div>
 	</div>
 </div>
