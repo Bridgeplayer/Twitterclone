@@ -14,6 +14,7 @@ class TweetsController < ApplicationController
 		@user = current_user
 		@lid = (@user.leaders.pluck(:leader_id) << @user.id)
 		@leadertweet = Tweet.where(user_id: @lid)
+
 		@tweecount = @user.tweets.count
 		@leadercount = @user.leaders.count
 		@followercount = @user.followers.count
