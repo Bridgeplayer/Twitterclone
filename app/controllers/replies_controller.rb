@@ -11,6 +11,7 @@ class RepliesController < ApplicationController
 			redirect_to tweet_path(id: @twee.id)
 		else
 			flash.now[:notice] = "Unsuccessful, please check your input"
+			@twee = Tweet.find(params[:tweet_id])
 			render 'tweets/show'
 		end
 	end
@@ -29,7 +30,7 @@ class RepliesController < ApplicationController
 			redirect_to tweet_path(id: @twee.id)
 		else
 			flash.now[:notice] = "Unsuccessful Reply Edit, please check your input"
-			render :show
+			render :edit
 		end
 	end
 
@@ -41,9 +42,4 @@ class RepliesController < ApplicationController
 			redirect_to tweet_path(id: @twee.id)
 		end
 	end
-
-
-
-
-
 end

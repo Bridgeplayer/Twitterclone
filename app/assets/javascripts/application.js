@@ -15,3 +15,39 @@
 //= require jquery
 //= require bootstrap-sprockets
 //= require_tree .
+
+// need to disable turbolink to hide the ReplyButton
+
+$(document).ready(function(){
+	$('#myForm').hide();
+	$('#ReplyButton').on('click', function(){
+		$('#myForm').show();
+		$('#ReplyButton').hide();
+	});
+
+	$('#ShowEditTweet').hide();
+	$('#EditButton').on('click', function(){
+		$('#ShowEditTweet').show();
+		$('#hideTweet').hide();
+	});
+})
+
+$(document).ready(function(){
+	$('#HideReplyButton').on('click', function(event){
+		event.preventDefault();
+		$('#myForm').hide();
+		$('#ReplyButton').show();
+	});
+	$('#TweetButton').on('click', function(event){
+		event.preventDefault();
+		$('#ShowEditTweet').hide();
+		$('#hideTweet').show();
+	});
+})
+
+
+// editButton
+
+// $(document).on("click","#yourButton",function(){
+//   $(#myform).show();
+// });

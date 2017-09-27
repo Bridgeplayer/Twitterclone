@@ -42,7 +42,7 @@ class TweetsController < ApplicationController
 			format.js { render :tweet }
 			end
 		else
-			flash.now[:failure] = "Tweet not successfully created"
+			flash.now[:notice] = "Tweet not successfully created"
 			render "new"
 		end
 	end
@@ -63,10 +63,10 @@ class TweetsController < ApplicationController
 		# post_params = params.require(:tweet).permit(:post)
 		@twee = Tweet.find(params[:id])
 		if @twee.update(post_params)
-			flash[:success] = "Tweet successfully updated"
+			flash[:notice] = "Tweet successfully updated"
 			redirect_to tweets_path
 		else
-			flash.now[:failure] = "Tweet not successfully updated"
+			flash.now[:notice] = "Tweet not successfully updated"
 			render "edit"
 		end
 
@@ -75,10 +75,10 @@ class TweetsController < ApplicationController
 	def destroy
 		@twee = Tweet.find(params[:id])
 		if @twee.destroy
-			flash[:success] = "Tweet successfully destroyed"
+			flash[:notice] = "Tweet successfully destroyed"
 			redirect_to tweets_path
 		else
-			flash.now[:failure] = "Tweet not successfully destroyed"
+			flash.now[:notice] = "Tweet not successfully destroyed"
 			redirect_to tweets_path
 		end
 	end
