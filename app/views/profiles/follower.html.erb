@@ -1,8 +1,11 @@
 <h2> All Your Followers </h2>
 
-  <% @user.followers.each do |friends| %>
+  <% @user.followers.each do |followers| %>
 
-    <p><%= link_to friends.follower.username, user_path(friends.follower.id) %> </p>
+
+  	
+
+    <p><%= link_to followers.follower.username, user_path(followers.follower.id) %> </p>
 
   <% end %>
 
