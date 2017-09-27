@@ -1,7 +1,6 @@
 class RepliesController < ApplicationController
 
 	def create
-		byebug
 		@twee = Tweet.find(params[:tweet_id])
 		repli_params = params.require(:reply).permit(:post)
 		@repli = @twee.replies.build(repli_params)
@@ -43,9 +42,4 @@ class RepliesController < ApplicationController
 			redirect_to tweet_path(id: @twee.id)
 		end
 	end
-
-
-
-
-
 end

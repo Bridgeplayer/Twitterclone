@@ -24,9 +24,7 @@ $(document).ready(function(){
 		$('#myForm').show();
 		$('#ReplyButton').hide();
 	});
-})
 
-$(document).ready(function(){
 	$('#ShowEditTweet').hide();
 	$('#EditButton').on('click', function(){
 		$('#ShowEditTweet').show();
@@ -38,6 +36,12 @@ $(document).ready(function(){
 	$('#HideReplyButton').on('click', function(event){
 		event.preventDefault();
 		$('#myForm').hide();
+		$('#ReplyButton').show();
+	});
+	$('#TweetButton').on('click', function(event){
+		event.preventDefault();
+		$('#ShowEditTweet').hide();
+		$('#hideTweet').show();
 	});
 })
 
