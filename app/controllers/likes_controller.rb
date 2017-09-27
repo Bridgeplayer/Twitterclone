@@ -7,7 +7,7 @@ class LikesController < ApplicationController
 		@lik.tweet_id = @twee.id
 
 		if @lik.save
-			redirect_to tweet_path(id: @twee.id)
+			redirect_to tweets_path
 		end
 	end
 
@@ -15,7 +15,7 @@ class LikesController < ApplicationController
 		@twee = Tweet.find(params[:tweet_id])
 		@lik = Like.find(params[:id])
 		if @lik.destroy
-			redirect_to tweet_path(id: @twee.id)
+			redirect_to tweets_path
 		end
 	end
 
