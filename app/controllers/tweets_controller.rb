@@ -8,11 +8,21 @@ class TweetsController < ApplicationController
 
 	def index
 		@user = current_user
+		@newtwee = Tweet.new
 		@twee = Tweet.all
 		@lik = Like.all
 		@user = current_user
+		@lid = (@user.leaders.pluck(:leader_id) << @user.id)
+		@leadertweet = Tweet.where(user_id: @lid)
+		@tweecount = @user.tweets.count
 		@leadercount = @user.leaders.count
 		@followercount = @user.followers.count
+		@allprofile = User.all
+		@newtofollow = @allprofile.where.not(id: @user.id)
+
+		# @tweelike = Tweet.find(params[:id])
+		# @likebutton = Like.find_by(user_id: current_user.id, tweet_id: @twee.id)
+		# @likcount = Like.where(tweet_id: @twee.id).count
 	end
 
 	def new
@@ -23,10 +33,14 @@ class TweetsController < ApplicationController
 		# post_params = params[:tweet].permit(:post)
 		@twee = Tweet.new(post_params)
 		@twee.user_id = current_user.id
-
+		
 		if @twee.save
 			flash[:success] = "Tweet successfully created"
-			redirect_to tweets_path
+			respond_to do |format|
+					format.html {
+			redirect_to tweets_path }
+			format.js { render :tweet }
+			end
 		else
 			flash.now[:failure] = "Tweet not successfully created"
 			render "new"
@@ -37,10 +51,8 @@ class TweetsController < ApplicationController
 		@twee = Tweet.find(params[:id])
 		@repli = Reply.new
 		
-		@lik = Like.find_by(user_id: current_user.id)
-		@likcount = Like.count
-	
-
+		@lik = Like.find_by(user_id: current_user.id, tweet_id: @twee.id)
+		@likcount = Like.where(tweet_id: @twee.id).count
 	end
 
 	def edit

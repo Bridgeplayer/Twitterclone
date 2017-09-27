@@ -1,4 +1,4 @@
-<h1>My Follower Tweets</h1>
+<h1>@<%= @user.username %>'s Profile</h1>
 
 <div class = "container">
 	<div class = "row">
@@ -31,8 +31,7 @@
 			</tbody>
 				
 		</table>
-		<%= link_to "My Tweets", tweets_path, class:"btn btn-primary"%>
-		<%= link_to "Back", alluser_path, class:"btn btn-success"%>
+		<%= link_to "Home", tweets_path, class:"btn btn-primary"%>
 
 		</div>
 	</div>
