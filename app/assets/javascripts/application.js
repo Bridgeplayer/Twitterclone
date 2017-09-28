@@ -19,29 +19,36 @@
 // need to disable turbolink to hide the ReplyButton
 
 $(document).ready(function(){
-	$('#myForm').hide();
-	$('#ReplyButton').on('click', function(){
-		$('#myForm').show();
-		$('#ReplyButton').hide();
+	$('#NewTweetForm').hide();
+	console.log("BeforeReplyButtonClick")
+	$('#ReplyButtonFromTweetShow').on('click', function(){
+		$('#NewTweetForm').show();
+		$('#ReplyButtonFromTweetShow').hide();
+		$('#EditTweetForm').hide();
+		$('#TweetShow').show();
+		console.log("AfterReplyButtonClick");
 	});
 
 	$('#ShowEditTweet').hide();
-	$('#EditButton').on('click', function(){
-		$('#ShowEditTweet').show();
-		$('#hideTweet').hide();
+	console.log("BeforeEditButtonClick")
+	$('#EditButtonFromTweetShow').on('click', function(){
+		$('#EditTweetForm').show();
+		$('#NewTweetForm').hide();
+		$('#TweetShow').hide();
+		console.log("AfterEditButtonClick");
 	});
 })
 
 $(document).ready(function(){
-	$('#HideReplyButton').on('click', function(event){
+	$('#BackButtonFromNewReplyForm').on('click', function(event){
 		event.preventDefault();
-		$('#myForm').hide();
-		$('#ReplyButton').show();
+		$('#NewTweetForm').hide();
+		$('#ReplyButtonFromTweetShow').show();
 	});
-	$('#TweetButton').on('click', function(event){
+	$('#BackButtonFromEditTweetForm').on('click', function(event){
 		event.preventDefault();
-		$('#ShowEditTweet').hide();
-		$('#hideTweet').show();
+		$('#EditTweetForm').hide();
+		$('#TweetShow').show();
 	});
 })
 
