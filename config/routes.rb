@@ -22,4 +22,8 @@ Rails.application.routes.draw do
   		resources :likes, only: [:create, :edit, :update, :destroy]
   	end
 
+  if Rails.env.development?
+    mount LetterOpenerWeb::Engine, at: "/letter_opener"
+  end
+
 end
