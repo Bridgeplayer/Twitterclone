@@ -1,3 +1,3 @@
-// $(document).on "page:change", ->
-// 	$('#newtweet').click ->
-// 		alert "New Tweet!"
+$(document).on "page:change", ->
+	$('#newtweet').click ->
+		alert "New Tweet!"
