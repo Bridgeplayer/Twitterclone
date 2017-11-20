@@ -4,6 +4,7 @@ class TweetMailer < ApplicationMailer
 		@reply = reply
 		@tweet = @reply.tweet
 		mail to: @tweet.user.email, subject: 'Twitter: Your tweet received a reply!'
+
 	end
 
 end
