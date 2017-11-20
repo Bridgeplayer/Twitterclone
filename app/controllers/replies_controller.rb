@@ -7,6 +7,7 @@ class RepliesController < ApplicationController
 		@repli.user_id = current_user.id
 		@repli.tweet_id = @twee.id
 		if @repli.save
+			TweetMailer.new_reply(@reply).deliver_later
 			flash[:notice] = "Replied Successfully"
 			redirect_to tweet_path(id: @twee.id)
 		else
