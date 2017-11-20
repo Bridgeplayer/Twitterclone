@@ -20,22 +20,19 @@
 
 $(document).ready(function(){
 	$('#NewTweetForm').hide();
-	console.log("BeforeReplyButtonClick")
+	$('#EditTweetForm').hide();
 	$('#ReplyButtonFromTweetShow').on('click', function(){
 		$('#NewTweetForm').show();
 		$('#ReplyButtonFromTweetShow').hide();
 		$('#EditTweetForm').hide();
 		$('#TweetShow').show();
-		console.log("AfterReplyButtonClick");
+
 	});
 
-	$('#ShowEditTweet').hide();
-	console.log("BeforeEditButtonClick")
 	$('#EditButtonFromTweetShow').on('click', function(){
 		$('#EditTweetForm').show();
 		$('#NewTweetForm').hide();
 		$('#TweetShow').hide();
-		console.log("AfterEditButtonClick");
 	});
 })
 
